@@ -2,85 +2,275 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Buku Panduan Digital | Kelompok 1A</title>
+<title>Buku Panduan Digital | Kelompok 1A</title>
 
-  <style>
-    * {
-      box-sizing: border-box;
-    }
+<style>
+* {
+  box-sizing: border-box;
+}
 
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background: #f1f3f5;
-    }
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #f3f5f8;
+  color: #263d55;
+}
 
-    header {
-      background: #263d55;
-      color: white;
-      text-align: center;
-      padding: 22px 15px;
-    }
+/* HEADER */
+header {
+  background: #203c59;
+  color: white;
+  text-align: center;
+  padding: 30px 15px;
+}
 
-    header h2 {
-      margin: 0 0 8px;
-    }
+header h1 {
+  margin: 0 0 8px;
+  font-size: 25px;
+}
 
-    header p {
-      margin: 0;
-      font-size: 14px;
-    }
+header p {
+  margin: 0;
+  font-size: 14px;
+  color: #dce6f0;
+}
 
-    .container {
-      max-width: 1100px;
-      margin: 20px auto;
-      padding: 0 15px;
-      text-align: center;
-    }
+/* CONTAINER */
+.container {
+  max-width: 1100px;
+  margin: auto;
+  padding: 25px 18px;
+}
 
-    .pdf-viewer {
-      width: 100%;
-      height: 80vh;
-      border: none;
-      background: white;
-      border-radius: 8px;
-    }
+/* SECTION */
+.section {
+  background: white;
+  padding: 22px;
+  margin-bottom: 22px;
+  border-radius: 12px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
 
-    .download {
-      display: inline-block;
-      margin: 20px 0;
-      padding: 14px 28px;
-      background: #263d55;
-      color: white;
-      text-decoration: none;
-      border-radius: 8px;
-      font-weight: bold;
-    }
+.section h2 {
+  font-size: 19px;
+  margin: 0 0 8px;
+}
 
-    .download:hover {
-      background: #385d7e;
-    }
+.description {
+  color: #6b7280;
+  font-size: 14px;
+  line-height: 1.6;
+  margin-bottom: 18px;
+}
 
-    footer {
-      text-align: center;
-      padding: 15px;
-      color: #666;
-      font-size: 13px;
-    }
-  </style>
+/* MEDIA CARDS */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 14px;
+}
+
+.card {
+  border: 1px solid #e1e7ed;
+  border-radius: 9px;
+  padding: 16px;
+}
+
+.card h3 {
+  margin: 0 0 8px;
+  font-size: 16px;
+}
+
+.card p {
+  font-size: 13px;
+  color: #6b7280;
+  margin: 0 0 14px;
+}
+
+.card a {
+  display: inline-block;
+  color: #28679b;
+  font-size: 13px;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.card a:hover {
+  text-decoration: underline;
+}
+
+/* PDF VIEWER */
+.pdf-viewer {
+  width: 100%;
+  height: 80vh;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background: #eee;
+}
+
+.download {
+  display: inline-block;
+  margin-top: 17px;
+  padding: 13px 22px;
+  background: #203c59;
+  color: white;
+  border-radius: 7px;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.download:hover {
+  background: #355a7c;
+}
+
+/* FOOTER */
+footer {
+  background: #203c59;
+  color: #dce6f0;
+  text-align: center;
+  padding: 20px;
+  font-size: 13px;
+}
+
+/* MOBILE */
+@media (max-width: 600px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+
+  header h1 {
+    font-size: 21px;
+  }
+
+  .section {
+    padding: 17px;
+  }
+
+  .pdf-viewer {
+    height: 65vh;
+  }
+}
+</style>
 </head>
 
 <body>
 
-  <header>
-    <h2>BUKU PANDUAN DIGITAL</h2>
-    <p>Kelompok 1A</p>
-  </header>
+<header>
+  <h1>BUKU PANDUAN DIGITAL</h1>
+  <p>Kelompok 1A | Media Pembelajaran Ekonomi</p>
+</header>
 
-  <main class="container">
+<main class="container">
+
+  <!-- FLASH CARD -->
+  <section class="section">
+    <h2>Flash Card</h2>
+    <p class="description">
+      Akses website pembelajaran yang memuat materi
+      Hukum Permintaan dan Hukum Penawaran.
+    </p>
+
+    <div class="grid">
+
+      <div class="card">
+        <h3>Hukum Permintaan</h3>
+        <p>Website pembelajaran Hukum Permintaan.</p>
+        <a href="https://chillaaaa.github.io/hukum-permintaan/"
+           target="_blank" rel="noopener">
+          Buka Website ↗
+        </a>
+      </div>
+
+      <div class="card">
+        <h3>Hukum Penawaran</h3>
+        <p>Website pembelajaran Hukum Penawaran.</p>
+        <a href="https://chillaaaa.github.io/hukum-penawaran/"
+           target="_blank" rel="noopener">
+          Buka Website ↗
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- MYSTERY CARD -->
+  <section class="section">
+    <h2>Mystery Card</h2>
+    <p class="description">
+      Akses media audio berdasarkan objek yang terdapat
+      dalam Mystery Card.
+    </p>
+
+    <div class="grid">
+
+      <div class="card">
+        <h3>Es Teh</h3>
+        <p>Media audio Mystery Card.</p>
+        <a href="https://chillaaaa.github.io/Es-Teh/"
+           target="_blank" rel="noopener">
+          Buka Audio ↗
+        </a>
+      </div>
+
+      <div class="card">
+        <h3>Sepatu</h3>
+        <p>Media audio Mystery Card.</p>
+        <a href="https://chillaaaa.github.io/Sepatu/"
+           target="_blank" rel="noopener">
+          Buka Audio ↗
+        </a>
+      </div>
+
+      <div class="card">
+        <h3>Daging Ayam</h3>
+        <p>Media audio Mystery Card.</p>
+        <a href="https://chillaaaa.github.io/Daging-Ayam/"
+           target="_blank" rel="noopener">
+          Buka Audio ↗
+        </a>
+      </div>
+
+      <div class="card">
+        <h3>Sayur</h3>
+        <p>Media audio Mystery Card.</p>
+        <a href="https://chillaaaa.github.io/Sayur/"
+           target="_blank" rel="noopener">
+          Buka Audio ↗
+        </a>
+      </div>
+
+      <div class="card">
+        <h3>Roti</h3>
+        <p>Media audio Mystery Card.</p>
+        <a href="https://chillaaaa.github.io/Roti/"
+           target="_blank" rel="noopener">
+          Buka Audio ↗
+        </a>
+      </div>
+
+      <div class="card">
+        <h3>Mangga</h3>
+        <p>Media audio Mystery Card.</p>
+        <a href="https://chillaaaa.github.io/Mangga/"
+           target="_blank" rel="noopener">
+          Buka Audio ↗
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- E-BOOK PDF -->
+  <section class="section">
+    <h2>Buku Panduan Digital</h2>
+    <p class="description">
+      Baca buku panduan secara langsung melalui halaman
+      berikut atau unduh file PDF.
+    </p>
 
     <iframe
       class="pdf-viewer"
@@ -91,14 +281,16 @@
       class="download"
       href="Buku_Panduan_K1A.pdf"
       download="Buku_Panduan_K1A.pdf">
-      ↓ Download PDF
+      ↓ Download Buku Panduan
     </a>
 
-  </main>
+  </section>
 
-  <footer>
-    Buku Panduan Digital Kelompok 1A
-  </footer>
+</main>
+
+<footer>
+  Buku Panduan Digital Kelompok 1A
+</footer>
 
 </body>
 </html>
