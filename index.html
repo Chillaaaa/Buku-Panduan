@@ -104,8 +104,10 @@ header p {
 
 /* PDF VIEWER */
 .pdf-viewer {
+  display: block;
   width: 100%;
   height: 80vh;
+  min-height: 600px;
   border: 1px solid #ddd;
   border-radius: 8px;
   background: #eee;
@@ -152,6 +154,7 @@ footer {
 
   .pdf-viewer {
     height: 65vh;
+    min-height: 450px;
   }
 }
 </style>
@@ -274,12 +277,14 @@ footer {
 
     <iframe
       class="pdf-viewer"
-      src="Buku_Panduan_K1A.pdf">
+      src="https://chillaaaa.github.io/Buku-Panduan/Buku_Panduan_K1A.pdf"
+      title="Buku Panduan Digital"
+      loading="lazy">
     </iframe>
 
     <a
       class="download"
-      href="Buku_Panduan_K1A.pdf"
+      href="https://chillaaaa.github.io/Buku-Panduan/Buku_Panduan_K1A.pdf"
       download="Buku_Panduan_K1A.pdf">
       ↓ Download Buku Panduan
     </a>
