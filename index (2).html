@@ -1,0 +1,755 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Buku Panduan Flash Card dan Mystery Card | Kelompok 1A</title>
+<meta name="description" content="Buku panduan penggunaan media dan skenario pembelajaran inklusif Flash Card dan Mystery Card, materi Hukum Permintaan dan Hukum Penawaran untuk guru.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700;800&family=Playfair+Display:ital,wght@0,700;0,800;1,700;1,800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#06122b; --indigo:#2a1a57; --violet:#3c2474; --lav:#8d79b8;
+  --gold:#f5b942; --orange:#f5a623; --pink:#e8548f; --green:#2fa866; --purple:#7c4dc4;
+  --cream:#fff2db; --paper:#fffaf0; --navy:#0d2340; --mint:#d7efe1;
+  --head:"Playfair Display",Georgia,"Times New Roman",serif;
+  --body:"Open Sans","Segoe UI",Arial,sans-serif;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font-family:var(--body);color:#fff;line-height:1.6;min-height:100vh;background:linear-gradient(165deg,#01030a 0%,#06143a 38%,#0a2a66 68%,#02050f 100%) fixed;overflow-x:hidden}
+h1,h2,h3{font-family:var(--head);margin:0;line-height:1.15}
+a{color:inherit}
+a:focus-visible,button:focus-visible{outline:3px solid var(--gold);outline-offset:3px;border-radius:12px}
+
+/* latar: lingkaran besar seperti sampul buku */
+.bg{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden}
+.bg i{position:absolute;border-radius:50%;filter:blur(70px)}
+.bg .a{width:460px;height:460px;top:-140px;left:-140px;background:#1d4ed8;opacity:.5}
+.bg .b{width:520px;height:520px;bottom:-200px;right:-160px;background:#0b3a8a;opacity:.7}
+.bg .c{width:340px;height:340px;top:40%;right:-120px;background:#2563eb;opacity:.45}
+.bg .d{width:300px;height:300px;top:58%;left:-120px;background:#1e3a8a;opacity:.6}
+
+/* GLASS dasar */
+.navbar,.toc,.toc-m,.viewer,.alur-card,.fc,.mc,.key,.fd,.ct{
+  background:var(--bg-t,rgba(255,255,255,.12));border:1px solid var(--bd,rgba(255,255,255,.28));
+  -webkit-backdrop-filter:blur(18px) saturate(150%);backdrop-filter:blur(18px) saturate(150%);
+  box-shadow:0 12px 36px rgba(8,3,26,.35),inset 0 1px 0 rgba(255,255,255,.3)}
+@supports not ((backdrop-filter:blur(1px)) or (-webkit-backdrop-filter:blur(1px))){
+  .navbar,.toc,.toc-m,.viewer,.alur-card,.fc,.mc,.key,.fd,.ct{background:rgba(6,18,44,.94)}}
+nav,main,footer{position:relative;z-index:1}
+.wrap{max-width:1180px;margin:0 auto;padding:0 18px}
+
+.eyebrow{font-size:12.5px;font-weight:800;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin:0 0 10px}
+.gold-bar{display:inline-block;width:5px;height:1.1em;background:var(--gold);border-radius:3px;margin-right:10px;vertical-align:-.15em}
+
+/* NAV */
+nav{position:sticky;top:10px;z-index:20;display:flex;justify-content:center;padding:10px 12px 0}
+.navbar{display:flex;align-items:center;gap:4px;padding:6px 7px 6px 18px;border-radius:999px;max-width:100%;overflow-x:auto;scrollbar-width:none;--bg-t:rgba(3,10,28,.55)}
+.navbar::-webkit-scrollbar{display:none}
+.brand{font-family:var(--head);font-style:italic;font-weight:800;font-size:17px;margin-right:8px;white-space:nowrap;color:var(--gold)}
+.navbar a.l{text-decoration:none;font-weight:700;font-size:14px;padding:8px 15px;border-radius:999px;white-space:nowrap;transition:background .2s,color .2s}
+.navbar a.l:hover{background:rgba(255,255,255,.14)}
+.navbar a.l.on{background:var(--gold);color:var(--ink)}
+
+/* BUTTON */
+.btn{display:inline-block;text-align:center;text-decoration:none;font-family:var(--body);font-weight:800;font-size:.92rem;padding:11px 20px;border-radius:999px;border:2px solid transparent;cursor:pointer;background:var(--gold);color:var(--ink);transition:transform .2s,box-shadow .2s,background .2s}
+.btn:hover{transform:translateY(-2px);box-shadow:0 8px 18px rgba(10,4,30,.35)}
+.btn.line{background:transparent;color:#fff;border-color:rgba(255,255,255,.55)}
+.btn.line:hover{background:rgba(255,255,255,.12)}
+.btn.dark{background:var(--violet);color:#fff}
+.btn.sm{padding:8px 16px;font-size:.85rem}
+
+/* HERO (ringkas, agar buku panduan langsung terlihat) */
+.hero{display:grid;grid-template-columns:1.25fr .75fr;gap:20px;align-items:center;padding:34px 0 18px}
+.hero h1{font-size:clamp(2rem,4.6vw,3.3rem);font-weight:800}
+.hero h1 em{font-style:italic;color:var(--gold)}
+.hero .sub{margin:14px 0 0;max-width:620px;color:#dbe7ff;font-size:1.02rem}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin:18px 0 0;padding:0;list-style:none}
+.chips li{font-size:13px;font-weight:700;padding:6px 14px;border-radius:999px;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.25)}
+.chips li b{color:var(--gold)}
+.hero .cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:22px}
+.hero-art{width:100%;max-width:340px;justify-self:center}
+.hero-art svg{width:100%;height:auto;display:block;overflow:visible}
+
+/* READER */
+section{padding:34px 0 6px;scroll-margin-top:70px}
+.reader{display:grid;grid-template-columns:300px 1fr;gap:18px;align-items:start}
+.toc{--bg-t:rgba(3,10,28,.5);border-radius:22px;padding:16px 14px;position:sticky;top:76px;max-height:calc(100vh - 96px);overflow:auto;scrollbar-width:thin}
+.toc h2{font-size:1.25rem;font-style:italic;margin:2px 6px 4px}
+.toc .hint{font-size:.8rem;color:#dbe7ff;margin:0 6px 10px}
+.toc h3{font-family:var(--body);font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);margin:14px 6px 6px;font-weight:800}
+.toc ul{list-style:none;margin:0;padding:0}
+.tb{display:flex;width:100%;justify-content:space-between;gap:10px;align-items:baseline;text-align:left;font:inherit;font-size:.88rem;font-weight:600;color:#fff;background:transparent;border:0;border-radius:10px;padding:7px 8px;cursor:pointer;transition:background .15s}
+.tb:hover{background:rgba(255,255,255,.12)}
+.tb.on{background:var(--gold);color:var(--ink)}
+.tb span{font-size:.75rem;font-weight:800;color:var(--gold);flex:none}
+.tb.on span{color:var(--ink)}
+.tb.sub{padding-left:20px;font-weight:400;color:#dbe7ff}
+.tb.sub.on{color:var(--ink);font-weight:700}
+.viewer{--bg-t:rgba(255,255,255,.16);--bd:rgba(245,185,66,.7);border-radius:22px;padding:10px}
+.viewer iframe{display:block;width:100%;height:84vh;min-height:560px;border:0;border-radius:14px;background:#fff}
+.vbar{display:flex;flex-wrap:wrap;gap:10px;align-items:center;padding:12px 8px 4px;color:#fff}
+.vbar p{margin:0;flex:1;min-width:210px;font-size:.86rem;color:#dbe7ff}
+.toc-m{display:none}
+
+/* ALUR 90 MENIT */
+.alur-card{border-radius:24px;padding:24px 24px 20px}
+.alur-card h2{font-size:clamp(1.5rem,3.4vw,2.1rem);font-style:italic;color:var(--gold)}
+.alur-card p.lead{margin:6px 0 18px;color:#dbe7ff;font-size:.95rem;max-width:720px}
+.bar{display:flex;gap:6px;min-height:92px}
+.seg{min-width:100px;border:1px solid rgba(255,255,255,.35);border-radius:14px;padding:10px 10px 12px;text-align:left;font-family:var(--body);color:#fff;cursor:pointer;display:flex;flex-direction:column;justify-content:space-between;transition:transform .2s,filter .2s}
+.seg:hover{transform:translateY(-4px);filter:brightness(1.08)}
+.seg b{font-family:var(--head);font-size:1.5rem;line-height:1}
+.seg small{font-size:.7rem;font-weight:800;letter-spacing:.04em;line-height:1.25;overflow-wrap:normal}
+.seg.s1{background:var(--purple)}.seg.s2{background:var(--orange);color:var(--ink)}.seg.s3{background:var(--pink)}
+.seg.s4{background:var(--navy)}.seg.s5{background:var(--green)}.seg.s6{background:#2dd4bf;color:var(--ink)}
+.alur-note{margin:14px 2px 0;font-size:.82rem;color:#dbe7ff}
+
+/* SECTION HEAD */
+.shead{display:flex;align-items:center;gap:22px;margin-bottom:22px}
+.shead svg{width:150px;height:auto;flex:none}
+.shead h2{font-size:clamp(1.8rem,4.4vw,2.7rem);font-weight:800}
+.shead h2 em{color:var(--gold)}
+.shead p{margin:8px 0 0;color:#dbe7ff;max-width:560px}
+
+/* FLASH CARD */
+.grid2{display:grid;grid-template-columns:repeat(2,1fr);gap:22px}
+.fc{border-radius:26px;padding:16px;color:#fff;display:flex;flex-direction:column;gap:12px}
+.fc.dm{--c:var(--orange);--soft:#fef3df;--ac:#b46a00;--bg-t:rgba(245,166,35,.22);--bd:rgba(255,196,90,.8)}
+.fc.pn{--c:var(--green);--soft:var(--mint);--ac:#1a7a49;--bg-t:rgba(47,168,102,.24);--bd:rgba(110,231,160,.8)}
+.flip{position:relative;height:290px;perspective:900px;border:0;padding:0;background:none;cursor:pointer;width:100%;font:inherit;color:inherit;text-align:center}
+.face{position:absolute;inset:0;border-radius:20px;background:#fff;backface-visibility:hidden;-webkit-backface-visibility:hidden;transition:transform .6s cubic-bezier(.3,.7,.3,1);display:flex;flex-direction:column;align-items:center;padding:14px 16px;overflow:hidden}
+.face.back{transform:rotateY(180deg);background:var(--soft)}
+.flip.on .front{transform:rotateY(-180deg)}
+.flip.on .back{transform:rotateY(0)}
+.pill{background:var(--c);color:#fff;font-weight:800;font-size:12px;letter-spacing:.12em;padding:5px 18px;border-radius:999px}
+.fc.dm .pill{color:var(--ink)}
+.front .kid{width:128px;height:128px;margin:8px 0 2px;background:var(--soft);border-radius:50%}
+.front h3{font-size:1.45rem;color:var(--ac);font-weight:800}
+.front p{margin:4px 0 0;font-size:.85rem;color:#4b3a76}
+.hintline{position:absolute;bottom:8px;left:0;right:0;font-size:.72rem;font-style:italic;color:#8b7ca8}
+.back svg{width:100%;height:120px;margin-top:6px}
+.back h3{font-size:1.15rem;color:var(--ac);margin-top:4px}
+.back p{margin:4px 0 0;font-size:.85rem;color:#3d2e66}
+.fc h3.t{font-size:1.4rem;color:#fff}
+.fc .desc{margin:0;font-size:.92rem;font-weight:600}
+.fc .row{display:flex;gap:10px;align-items:center;justify-content:space-between;flex-wrap:wrap}
+.fc .btn{background:#fff;color:var(--ink)}
+.fc .count{font-size:.8rem;font-weight:800}
+
+/* MYSTERY CARD */
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.mc{position:relative;--bg-t:rgba(13,35,64,.58);border-radius:22px;padding:14px;display:flex;flex-direction:column;gap:8px;transition:transform .25s}
+.mc:hover,.mc:focus-within{transform:translateY(-5px) rotate(-.6deg)}
+.scene{position:relative;height:118px;border-radius:14px;background:linear-gradient(#27406a,#1a2d4d);overflow:hidden}
+.scene svg{position:absolute;inset:0;width:100%;height:100%}
+.scene .em{position:absolute;left:50%;bottom:8px;transform:translateX(-50%);width:58px;height:58px;border-radius:50%;background:var(--cream);display:grid;place-items:center;font-size:32px;box-shadow:0 6px 12px rgba(0,0,0,.35);animation:bob 3.2s ease-in-out infinite;animation-delay:var(--d,0s)}
+.mc h3{font-size:1.3rem;font-style:italic}
+.tags{display:flex;flex-wrap:wrap;gap:6px}
+.tag{font-size:12px;font-weight:800;padding:3px 11px;border-radius:999px}
+.tag.p{background:var(--orange);color:var(--ink)}
+.tag.w{background:#55b37a;color:var(--ink)}
+.mc.p{border-top:4px solid var(--orange)}
+.mc.w{border-top:4px solid #55e096}
+.tag.lv{background:transparent;border:1px solid rgba(255,255,255,.45);color:#fff}
+.mc .btn{padding:9px 14px;font-size:.84rem;margin-top:4px}
+.mc .btn::after{content:"";position:absolute;inset:0;border-radius:22px}
+.key{margin-top:18px;border-radius:18px;padding:14px 18px;display:flex;flex-wrap:wrap;gap:12px;align-items:center}
+.key p{margin:0;flex:1;min-width:220px;font-size:.92rem;color:#dbe7ff}
+
+.fd{--bg-t:rgba(45,212,191,.16);--bd:rgba(94,234,212,.75);border-radius:28px;padding:22px 26px;display:grid;grid-template-columns:240px 1fr;gap:26px;align-items:center}
+.fd svg.art{width:100%;height:auto;display:block}
+.fd h2{font-size:clamp(1.7rem,4vw,2.5rem);font-weight:800}
+.fd h2 em{color:#5eead4}
+.fd p{margin:10px 0 0;color:#eaf8f5;max-width:560px}
+.fd .eyebrow{color:#5eead4}
+.fd .chips{margin-top:14px}
+.btn.teal{background:#2dd4bf;color:var(--ink)}
+.fd .cta{margin-top:18px}
+.ct{border-radius:24px;padding:22px}
+.ct.em{--bd:rgba(245,185,66,.75);--bg-t:rgba(245,185,66,.14)}
+.ct.fm{--bd:rgba(255,140,185,.8);--bg-t:rgba(232,84,143,.18)}
+.ct h3{font-size:1.4rem;display:flex;align-items:center;gap:10px}
+.ct h3 svg{width:30px;height:30px;flex:none}
+.ct p{margin:8px 0 14px;color:#dbe7ff;font-size:.95rem}
+.ct .mail{display:block;font-weight:800;font-size:1.05rem;color:var(--gold);overflow-wrap:anywhere;margin-bottom:14px}
+.ct .acts{display:flex;flex-wrap:wrap;gap:10px}
+.btn.pink{background:#ff7eb0;color:var(--ink)}
+.toast{font-size:.82rem;font-weight:700;color:#5eead4;min-height:1.2em;margin-top:8px}
+footer{text-align:center;padding:46px 18px 36px;color:#dbe7ff;font-size:.9rem}
+footer b{font-family:var(--head);font-style:italic;color:var(--gold);font-size:1.1rem;font-weight:700}
+
+/* animasi SVG */
+@keyframes bob{50%{transform:translateX(-50%) translateY(-6px)}}
+.fan1,.fan2,.fan3,.tw{transform-box:fill-box;transform-origin:center}
+.fan2{animation:float 5s ease-in-out infinite}
+.fan1{animation:float 5s ease-in-out -1.6s infinite}
+.fan3{animation:float 5s ease-in-out -3.2s infinite}
+@keyframes float{50%{transform:translateY(-7px)}}
+.tw{animation:tw 2.6s ease-in-out infinite}
+.tw2{animation-delay:.9s}.tw3{animation-delay:1.7s}
+@keyframes tw{50%{transform:scale(.3);opacity:.4}}
+.qm{animation:pulse 3s ease-in-out infinite;transform-box:fill-box;transform-origin:center}
+@keyframes pulse{50%{transform:scale(1.1)}}
+
+@media (max-width:980px){
+  .reader{grid-template-columns:1fr}
+  .toc{display:none}
+  .toc-m{display:block;--bg-t:rgba(3,10,28,.55);border-radius:18px;padding:6px 10px}
+  .toc-m summary{cursor:pointer;font-weight:800;padding:10px 6px;list-style:none}
+  .toc-m summary::before{content:"▸ ";color:var(--gold)}
+  .toc-m[open] summary::before{content:"▾ "}
+  .toc-m .tl{max-height:46vh;overflow:auto;padding-bottom:8px}
+  .toc-m ul{list-style:none;margin:0;padding:0}
+  .toc-m h3{font-family:var(--body);font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);margin:12px 6px 4px;font-weight:800}
+  .fd{grid-template-columns:180px 1fr}
+  .hero{grid-template-columns:1fr}
+  .hero-art{max-width:260px;order:-1;justify-self:start}
+  .grid3{grid-template-columns:repeat(2,1fr)}
+}
+@media (max-width:640px){
+  .brand{display:none}
+  .navbar{padding:5px}
+  .navbar a.l{padding:8px 11px;font-size:13px}
+  .hero{padding-top:20px}
+  .hero-art{display:none}
+  .viewer iframe{height:68vh;min-height:430px}
+  .grid2,.grid3{grid-template-columns:1fr}
+  .fd{grid-template-columns:1fr;padding:18px;gap:14px}
+  .fd svg.art{max-width:200px}
+  .shead{flex-direction:column;align-items:flex-start;gap:8px}
+  .shead svg{width:120px}
+  .bar{flex-wrap:wrap}
+  .seg{flex:1 1 calc(33% - 6px)!important;min-height:78px}
+  .alur-card{padding:18px 14px}
+}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}
+}
+</style>
+</head>
+<body>
+<div class="bg" aria-hidden="true"><i class="a"></i><i class="b"></i><i class="c"></i><i class="d"></i></div>
+
+<!-- Aset gambar yang dipakai berulang -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <defs>
+    <!-- siswa A: rambut pendek -->
+    <symbol id="kid-a" viewBox="0 0 100 100">
+      <path d="M16 100C16 77 33 68 50 68S84 77 84 100Z" fill="var(--shirt,#f5a623)"/>
+      <rect x="44" y="58" width="12" height="14" rx="4" fill="#f2c7a2"/>
+      <circle cx="50" cy="44" r="21" fill="#f6d2b0"/>
+      <path d="M28 43C25 24 40 17 53 19C67 20 75 31 72 43C66 35 58 32 50 32C42 32 34 35 28 43Z" fill="#2b2230"/>
+      <circle cx="42" cy="46" r="2.4" fill="#2b2230"/><circle cx="58" cy="46" r="2.4" fill="#2b2230"/>
+      <circle cx="36" cy="53" r="3.6" fill="#ee8f8f" opacity=".5"/><circle cx="64" cy="53" r="3.6" fill="#ee8f8f" opacity=".5"/>
+      <path d="M45 54Q50 58 55 54" fill="none" stroke="#2b2230" stroke-width="2" stroke-linecap="round"/>
+    </symbol>
+    <!-- siswa B: berhijab -->
+    <symbol id="kid-b" viewBox="0 0 100 100">
+      <path d="M12 100C12 76 30 66 50 66S88 76 88 100Z" fill="var(--hij,#8a3a4a)"/>
+      <path d="M30 100C30 86 38 80 50 80S70 86 70 100Z" fill="var(--shirt,#e8548f)"/>
+      <ellipse cx="50" cy="44" rx="28" ry="31" fill="var(--hij,#8a3a4a)"/>
+      <ellipse cx="50" cy="47" rx="19" ry="21" fill="#c98c5f"/>
+      <circle cx="43" cy="47" r="2.4" fill="#2b2230"/><circle cx="57" cy="47" r="2.4" fill="#2b2230"/>
+      <circle cx="37" cy="54" r="3.4" fill="#e07a7a" opacity=".5"/><circle cx="63" cy="54" r="3.4" fill="#e07a7a" opacity=".5"/>
+      <path d="M45 55Q50 59 55 55" fill="none" stroke="#2b2230" stroke-width="2" stroke-linecap="round"/>
+    </symbol>
+    <!-- siswa C: kacamata, rambut dikuncir -->
+    <symbol id="kid-c" viewBox="0 0 100 100">
+      <path d="M16 100C16 77 33 68 50 68S84 77 84 100Z" fill="var(--shirt,#2fa866)"/>
+      <rect x="44" y="58" width="12" height="14" rx="4" fill="#e9b98f"/>
+      <circle cx="26" cy="30" r="9" fill="#2b2230"/><circle cx="74" cy="30" r="9" fill="#2b2230"/>
+      <circle cx="50" cy="44" r="21" fill="#efc59f"/>
+      <path d="M28 42C27 24 40 19 52 20C66 21 74 30 72 42C66 35 58 32 50 32C42 32 34 35 28 42Z" fill="#2b2230"/>
+      <g fill="#fff" fill-opacity=".6" stroke="#2b2230" stroke-width="2"><circle cx="42" cy="47" r="6.5"/><circle cx="58" cy="47" r="6.5"/></g>
+      <path d="M48.5 47H51.5" stroke="#2b2230" stroke-width="2"/>
+      <circle cx="42" cy="47" r="1.8" fill="#2b2230"/><circle cx="58" cy="47" r="1.8" fill="#2b2230"/>
+      <path d="M45 56Q50 60 55 56" fill="none" stroke="#2b2230" stroke-width="2" stroke-linecap="round"/>
+    </symbol>
+    <!-- QR sederhana -->
+    <symbol id="qr" viewBox="0 0 30 30">
+      <rect width="30" height="30" fill="#fff" rx="2"/>
+      <g fill="#0d2340"><path d="M3 3h9v9H3zM18 3h9v9h-9zM3 18h9v9H3z"/></g>
+      <g fill="#fff"><path d="M5 5h5v5H5zM20 5h5v5h-5zM5 20h5v5H5z"/></g>
+      <g fill="#0d2340"><path d="M6.5 6.5h2v2h-2zM21.5 6.5h2v2h-2zM6.5 21.5h2v2h-2zM15 15h3v3h-3zM20 18h3v3h-3zM24 22h3v3h-3zM15 21h3v3h-3zM19 25h3v2h-3zM14 3h2v5h-2zM14 10h3v2h-3zM3 14h4v2H3zM9 14h3v3H9z"/></g>
+    </symbol>
+    <!-- bubble tanda tanya -->
+    <symbol id="qb" viewBox="0 0 30 30">
+      <circle cx="15" cy="15" r="13" fill="#fff" stroke="#f5b942" stroke-width="2.5"/>
+      <text x="15" y="22" text-anchor="middle" font-size="20" font-weight="800" fill="#2a1a57" font-family="Playfair Display,Georgia,serif">?</text>
+    </symbol>
+    <!-- kanopi toko -->
+    <symbol id="awn" viewBox="0 0 120 30">
+      <path d="M0 0H120V20Q110 30 100 20Q90 30 80 20Q70 30 60 20Q50 30 40 20Q30 30 20 20Q10 30 0 20Z" fill="#fff"/>
+      <path d="M0 0H20V20Q10 30 0 20ZM40 0H60V20Q50 30 40 20ZM80 0H100V20Q90 30 80 20Z" fill="#e8548f"/>
+      <path d="M20 0H40V20Q30 30 20 20ZM60 0H80V20Q70 30 60 20ZM100 0H120V20Q110 30 100 20Z" fill="#fff"/>
+    </symbol>
+  </defs>
+</svg>
+
+<nav aria-label="Navigasi utama">
+  <div class="navbar">
+    <span class="brand">Kelompok 1A</span>
+    <a class="l" href="#buku-panduan">Buku Panduan</a>
+    <a class="l" href="#flash-card">Flash Card</a>
+    <a class="l" href="#flash-digital">Flash Digital</a>
+    <a class="l" href="#mystery-card">Mystery Card</a>
+    <a class="l" href="#kontak">Kontak</a>
+  </div>
+</nav>
+
+<main class="wrap">
+
+<!-- HERO ringkas -->
+<header class="hero">
+  <div>
+    <p class="eyebrow">Buku panduan untuk guru</p>
+    <h1>Flash Card <em>dan</em> Mystery Card</h1>
+    <p class="sub">Panduan penggunaan media dan skenario pembelajaran inklusif untuk materi Hukum Permintaan dan Hukum Penawaran. Buku langsung bisa dibaca di bawah ini.</p>
+    <ul class="chips" aria-label="Ringkasan buku">
+      <li><b>Kelas X</b> SMA, Fase E</li>
+      <li><b>Reguler</b> • Low Vision • Tuli</li>
+      <li><b>90</b> menit</li>
+      <li><b>61</b> halaman</li>
+    </ul>
+    <div class="cta">
+      <a class="btn" href="#buku-panduan">Baca Buku Panduan</a>
+      <a class="btn line" href="https://chillaaaa.github.io/Buku-Panduan/Buku_Panduan_K1A.pdf" download="Buku_Panduan_K1A.pdf">Unduh PDF</a>
+    </div>
+  </div>
+  <div class="hero-art">
+    <svg viewBox="0 0 320 270" role="img" aria-label="Tiga kartu: kartu Flash Card hijau, kartu Mystery Card biru tua dengan toko, dan kartu Flash Card ungu">
+      <g class="fan1"><g transform="rotate(-9 90 150)">
+        <rect x="24" y="62" width="130" height="176" rx="16" fill="#2fa866"/>
+        <rect x="34" y="72" width="110" height="156" rx="11" fill="#fff"/>
+        <rect x="52" y="82" width="74" height="18" rx="9" fill="#2fa866"/>
+        <circle cx="89" cy="150" r="34" fill="#d7efe1"/>
+        <use href="#kid-b" x="55" y="116" width="68" height="68" style="--shirt:#e8548f;--hij:#8a3a4a"/>
+        <use href="#qb" x="104" y="110" width="26" height="26"/>
+        <rect x="46" y="196" width="86" height="8" rx="4" fill="#2fa866" opacity=".8"/>
+        <rect x="58" y="210" width="62" height="6" rx="3" fill="#2fa866" opacity=".4"/>
+      </g></g>
+      <g class="fan3"><g transform="rotate(10 232 150)">
+        <rect x="168" y="62" width="130" height="176" rx="16" fill="#7c4dc4"/>
+        <rect x="178" y="72" width="110" height="156" rx="11" fill="#fff"/>
+        <rect x="196" y="82" width="74" height="18" rx="9" fill="#7c4dc4"/>
+        <rect x="186" y="108" width="94" height="58" rx="8" fill="#0d2340"/>
+        <path d="M194 156L212 136L226 146L246 124L272 130" fill="none" stroke="#f5b942" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+        <rect x="190" y="176" width="86" height="7" rx="3.5" fill="#7c4dc4" opacity=".6"/>
+        <rect x="190" y="190" width="70" height="7" rx="3.5" fill="#7c4dc4" opacity=".35"/>
+        <use href="#qr" x="252" y="194" width="28" height="28"/>
+      </g></g>
+      <g class="fan2">
+        <rect x="88" y="18" width="150" height="212" rx="18" fill="#0d2340" stroke="#f5b942" stroke-width="3" stroke-dasharray="2 7" stroke-linecap="round"/>
+        <rect x="100" y="30" width="126" height="74" rx="10" fill="#27406a"/>
+        <use href="#awn" x="104" y="34" width="118" height="30"/>
+        <rect x="124" y="74" width="78" height="22" rx="4" fill="#fff2db"/>
+        <circle cx="163" cy="76" r="17" fill="#fff2db"/>
+        <text x="163" y="84" text-anchor="middle" font-size="22">🧋</text>
+        <rect x="100" y="114" width="126" height="9" rx="4.5" fill="#fff" opacity=".9"/>
+        <rect x="100" y="129" width="100" height="9" rx="4.5" fill="#fff" opacity=".55"/>
+        <rect x="100" y="150" width="126" height="64" rx="12" fill="#fff2db"/>
+        <use href="#qr" x="108" y="158" width="48" height="48"/>
+        <rect x="164" y="170" width="52" height="7" rx="3.5" fill="#0d2340"/>
+        <rect x="164" y="184" width="40" height="7" rx="3.5" fill="#0d2340" opacity=".5"/>
+      </g>
+      <path class="tw" d="M20 36l4 11 11 4-11 4-4 11-4-11-11-4 11-4z" fill="#f5b942"/>
+      <path class="tw tw2" d="M290 30l3 8 8 3-8 3-3 8-3-8-8-3 8-3z" fill="#fff"/>
+      <path class="tw tw3" d="M296 250l3 8 8 3-8 3-3 8-3-8-8-3 8-3z" fill="#f5b942"/>
+    </svg>
+  </div>
+</header>
+
+<!-- 1. BUKU PANDUAN (bagian utama) -->
+<section id="buku-panduan" aria-labelledby="h-buku">
+  <p class="eyebrow"><span class="gold-bar"></span>Buku panduan penggunaan media dan skenario pembelajaran inklusif</p>
+  <h2 id="h-buku" style="font-size:clamp(1.6rem,3.6vw,2.3rem);margin-bottom:18px">Baca <em style="color:var(--gold)">Buku Panduan</em></h2>
+
+  <div class="reader">
+    <!-- Daftar isi (desktop) -->
+    <aside class="toc" aria-label="Loncat ke bagian buku">
+      <h2>Daftar isi</h2>
+      <p class="hint">Klik untuk langsung ke halaman itu.</p>
+      <h3>Awal</h3>
+      <ul>
+        <li><button class="tb" data-page="2">Kata Pengantar <span>2</span></button></li>
+        <li><button class="tb" data-page="3">Daftar Isi <span>3</span></button></li>
+        <li><button class="tb" data-page="5">Capaian Pembelajaran Fase E <span>5</span></button></li>
+      </ul>
+      <h3>Bagian I. Panduan media</h3>
+      <ul>
+        <li><button class="tb" data-page="7">Identitas Media <span>7</span></button></li>
+        <li><button class="tb" data-page="8">Deskripsi Media <span>8</span></button></li>
+        <li><button class="tb" data-page="10">Tujuan Penggunaan <span>10</span></button></li>
+        <li><button class="tb" data-page="11">Sasaran dan Aksesibilitas <span>11</span></button></li>
+        <li><button class="tb" data-page="13">Komponen dan Fungsinya <span>13</span></button></li>
+        <li><button class="tb" data-page="17">Persiapan Sebelum Digunakan <span>17</span></button></li>
+        <li><button class="tb" data-page="18">Petunjuk Penggunaan <span>18</span></button></li>
+        <li><button class="tb" data-page="20">Aturan Permainan Mystery Card <span>20</span></button></li>
+        <li><button class="tb" data-page="21">Evaluasi Penggunaan Media <span>21</span></button></li>
+      </ul>
+      <h3>Bagian II. Skenario 90 menit</h3>
+      <ul>
+        <li><button class="tb" data-page="23">Identitas Pembelajaran <span>23</span></button></li>
+        <li><button class="tb" data-page="24">Tujuan Pembelajaran <span>24</span></button></li>
+        <li><button class="tb" data-page="25">Karakteristik Peserta Didik <span>25</span></button></li>
+        <li><button class="tb" data-page="26">Langkah Kegiatan <span>26</span></button></li>
+        <li><button class="tb sub" data-page="27">Pendahuluan <span>27</span></button></li>
+        <li><button class="tb sub" data-page="28">Flash Card <span>28</span></button></li>
+        <li><button class="tb sub" data-page="29">Aturan Mystery Card <span>29</span></button></li>
+        <li><button class="tb sub" data-page="30">Permainan Mystery Card <span>30</span></button></li>
+        <li><button class="tb sub" data-page="31">Pembahasan Kasus <span>31</span></button></li>
+        <li><button class="tb sub" data-page="32">Penutup <span>32</span></button></li>
+        <li><button class="tb" data-page="33">Strategi Diferensiasi <span>33</span></button></li>
+        <li><button class="tb" data-page="35">Bantuan dan Pendampingan <span>35</span></button></li>
+        <li><button class="tb" data-page="36">Antisipasi Kendala <span>36</span></button></li>
+        <li><button class="tb" data-page="37">Evaluasi Hasil Belajar <span>37</span></button></li>
+        <li><button class="tb" data-page="38">Refleksi dan Tindak Lanjut <span>38</span></button></li>
+      </ul>
+      <h3>Penutup dan lampiran</h3>
+      <ul>
+        <li><button class="tb" data-page="39">Penutup <span>39</span></button></li>
+        <li><button class="tb" data-page="40">Glosarium <span>40</span></button></li>
+        <li><button class="tb" data-page="42">Daftar Pustaka <span>42</span></button></li>
+        <li><button class="tb" data-page="44">Isi Flash Card Permintaan <span>44</span></button></li>
+        <li><button class="tb" data-page="46">Isi Flash Card Penawaran <span>46</span></button></li>
+        <li><button class="tb" data-page="48">Mystery Card dan Kunci Jawaban <span>48</span></button></li>
+        <li><button class="tb" data-page="49">Isi QR Code <span>49</span></button></li>
+        <li><button class="tb" data-page="50">Tampilan Kartu Permintaan <span>50</span></button></li>
+        <li><button class="tb" data-page="54">Tampilan Kartu Penawaran <span>54</span></button></li>
+        <li><button class="tb" data-page="59">Tampilan Mystery Card <span>59</span></button></li>
+      </ul>
+    </aside>
+
+    <div>
+      <!-- Daftar isi ringkas (HP dan tablet) -->
+      <details class="toc-m">
+        <summary>Loncat ke bagian buku</summary>
+        <div class="tl">
+          <h3>Bagian I</h3>
+          <ul>
+            <li><button class="tb" data-page="7">Identitas Media <span>7</span></button></li>
+            <li><button class="tb" data-page="11">Sasaran dan Aksesibilitas <span>11</span></button></li>
+            <li><button class="tb" data-page="17">Persiapan Sebelum Digunakan <span>17</span></button></li>
+            <li><button class="tb" data-page="18">Petunjuk Penggunaan <span>18</span></button></li>
+            <li><button class="tb" data-page="20">Aturan Mystery Card <span>20</span></button></li>
+          </ul>
+          <h3>Bagian II</h3>
+          <ul>
+            <li><button class="tb" data-page="26">Langkah Kegiatan 90 menit <span>26</span></button></li>
+            <li><button class="tb" data-page="33">Strategi Diferensiasi <span>33</span></button></li>
+            <li><button class="tb" data-page="35">Bantuan dan Pendampingan <span>35</span></button></li>
+            <li><button class="tb" data-page="37">Evaluasi Hasil Belajar <span>37</span></button></li>
+          </ul>
+          <h3>Lampiran</h3>
+          <ul>
+            <li><button class="tb" data-page="44">Isi Flash Card <span>44</span></button></li>
+            <li><button class="tb" data-page="48">Mystery Card dan Kunci Jawaban <span>48</span></button></li>
+            <li><button class="tb" data-page="49">Isi QR Code <span>49</span></button></li>
+          </ul>
+        </div>
+      </details>
+
+      <div class="viewer" style="margin-top:12px">
+        <div id="frame"><iframe src="https://chillaaaa.github.io/Buku-Panduan/Buku_Panduan_K1A.pdf" title="Buku Panduan Flash Card dan Mystery Card Kelompok 1A"></iframe></div>
+        <div class="vbar">
+          <p>PDF tidak tampil di HP? Buka di tab baru atau unduh filenya.</p>
+          <a id="newtab" class="btn line sm" href="https://chillaaaa.github.io/Buku-Panduan/Buku_Panduan_K1A.pdf" target="_blank" rel="noopener">Buka di tab baru</a>
+          <a class="btn sm" href="https://chillaaaa.github.io/Buku-Panduan/Buku_Panduan_K1A.pdf" download="Buku_Panduan_K1A.pdf">Unduh Buku Panduan</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 2. ALUR 90 MENIT -->
+<section id="alur" aria-labelledby="h-alur">
+  <div class="alur-card">
+    <h2 id="h-alur">Alur pembelajaran 90 menit</h2>
+    <p class="lead">Gambaran cepat sebelum masuk kelas. Klik satu tahap untuk membuka halaman penjelasannya di buku.</p>
+    <div class="bar">
+      <button class="seg s1" style="flex:5" data-page="27" data-jump><b>5</b><small>Pendahuluan</small></button>
+      <button class="seg s2" style="flex:15" data-page="28" data-jump><b>15</b><small>Pengenalan dan penggunaan Flash Card</small></button>
+      <button class="seg s3" style="flex:3" data-page="29" data-jump><b>3</b><small>Aturan</small></button>
+      <button class="seg s4" style="flex:30" data-page="30" data-jump><b>30</b><small>Permainan Mystery Card (kode tangan)</small></button>
+      <button class="seg s5" style="flex:30" data-page="31" data-jump><b>30</b><small>Pembahasan enam kasus dan pendalaman materi</small></button>
+      <button class="seg s6" style="flex:7" data-page="32" data-jump><b>7</b><small>Penutup</small></button>
+    </div>
+    <p class="alur-note">Angka dalam menit. Total 90 menit, mengikuti tabel di halaman 26 buku.</p>
+  </div>
+</section>
+
+<!-- 3. FLASH CARD -->
+<section id="flash-card" aria-labelledby="h-flash">
+  <div class="shead">
+    <svg viewBox="0 0 150 120" aria-hidden="true">
+      <g class="fan1"><rect x="14" y="22" width="68" height="88" rx="10" fill="#f5a623" transform="rotate(-10 48 66)"/></g>
+      <g class="fan3"><rect x="68" y="20" width="68" height="88" rx="10" fill="#2fa866" transform="rotate(9 102 64)"/></g>
+      <g class="fan2"><rect x="42" y="8" width="68" height="96" rx="10" fill="#fff"/>
+        <circle cx="76" cy="52" r="22" fill="#fef3df"/>
+        <use href="#kid-a" x="54" y="30" width="44" height="44" style="--shirt:#f5a623"/>
+        <use href="#qb" x="88" y="22" width="20" height="20"/>
+        <rect x="54" y="82" width="44" height="7" rx="3.5" fill="#f5a623"/></g>
+    </svg>
+    <div>
+      <p class="eyebrow">Media pengenalan materi</p>
+      <h2 id="h-flash">Isi <em>Flash Card</em></h2>
+      <p>Kartu fisik dengan QR Code: 8 kartu Hukum Permintaan dan 9 kartu Hukum Penawaran (1 kartu pembuka dan 8 kartu materi). Website di bawah memuat materi digitalnya.</p>
+    </div>
+  </div>
+
+  <div class="grid2">
+    <article class="fc dm">
+      <button class="flip" type="button" aria-pressed="false" aria-label="Balik kartu Hukum Permintaan">
+        <span class="face front">
+          <span class="pill">TOPIK 1</span>
+          <span class="kid"><svg viewBox="0 0 100 100" width="100%" height="100%" aria-hidden="true"><use href="#kid-a" style="--shirt:#f5a623"/><use href="#qb" x="62" y="2" width="30" height="30" class="qm"/></svg></span>
+          <h3>Hukum Permintaan</h3>
+          <p>Bagaimana bunyi Hukum Permintaan?</p>
+          <span class="hintline">Jawab dulu, lalu balik kartu!</span>
+        </span>
+        <span class="face back">
+          <span class="pill">JAWABAN</span>
+          <svg viewBox="0 0 220 110" aria-hidden="true"><path d="M30 12V92H200" fill="none" stroke="#3d2e66" stroke-opacity=".5" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/><path d="M44 20Q70 78 190 86" fill="none" stroke="#f5a623" stroke-width="7" stroke-linecap="round"/><circle cx="44" cy="20" r="6" fill="#fff" stroke="#c77a05" stroke-width="3"/><circle cx="190" cy="86" r="6" fill="#fff" stroke="#c77a05" stroke-width="3"/><text x="12" y="12" font-size="11" font-weight="800" fill="#3d2e66">P</text><text x="204" y="104" font-size="11" font-weight="800" fill="#3d2e66">Q</text></svg>
+          <h3>Harga naik, jumlah diminta turun.</h3>
+          <p>Hubungannya berlawanan, dengan syarat faktor lain tetap.</p>
+        </span>
+      </button>
+      <h3 class="t">Hukum Permintaan</h3>
+      <p class="desc">Saat harga naik, jumlah barang yang diminta turun. Pelajari kurva dan contohnya.</p>
+      <div class="row"><span class="count">8 kartu • video ± 3 menit</span><a class="btn" href="https://chillaaaa.github.io/hukum-permintaan/" target="_blank" rel="noopener">Buka website</a></div>
+    </article>
+
+    <article class="fc pn">
+      <button class="flip" type="button" aria-pressed="false" aria-label="Balik kartu Hukum Penawaran">
+        <span class="face front">
+          <span class="pill">TOPIK 4</span>
+          <span class="kid"><svg viewBox="0 0 100 100" width="100%" height="100%" aria-hidden="true"><use href="#kid-b" style="--shirt:#e8548f;--hij:#8a3a4a"/><use href="#qb" x="62" y="2" width="30" height="30" class="qm"/></svg></span>
+          <h3>Hukum Penawaran</h3>
+          <p>Bagaimana bunyi Hukum Penawaran?</p>
+          <span class="hintline">Jawab dulu, lalu balik kartu!</span>
+        </span>
+        <span class="face back">
+          <span class="pill">JAWABAN</span>
+          <svg viewBox="0 0 220 110" aria-hidden="true"><path d="M30 12V92H200" fill="none" stroke="#3d2e66" stroke-opacity=".5" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/><path d="M44 84Q150 78 190 18" fill="none" stroke="#2fa866" stroke-width="7" stroke-linecap="round"/><circle cx="44" cy="84" r="6" fill="#fff" stroke="#1a7a49" stroke-width="3"/><circle cx="190" cy="18" r="6" fill="#fff" stroke="#1a7a49" stroke-width="3"/><text x="12" y="12" font-size="11" font-weight="800" fill="#3d2e66">P</text><text x="204" y="104" font-size="11" font-weight="800" fill="#3d2e66">Q</text></svg>
+          <h3>Harga naik, jumlah ditawarkan naik.</h3>
+          <p>Hubungannya searah, dengan syarat faktor lain tetap.</p>
+        </span>
+      </button>
+      <h3 class="t">Hukum Penawaran</h3>
+      <p class="desc">Saat harga naik, jumlah barang yang ditawarkan ikut naik. Pelajari kurva dan contohnya.</p>
+      <div class="row"><span class="count">9 kartu • audio ± 2 menit</span><a class="btn" href="https://chillaaaa.github.io/hukum-penawaran/" target="_blank" rel="noopener">Buka website</a></div>
+    </article>
+  </div>
+  <div class="key">
+    <p>Isi lengkap tiap kartu (depan dan belakang) ada di lampiran buku.</p>
+    <button class="btn line sm" data-page="44" data-jump>Isi Flash Card Permintaan</button>
+    <button class="btn line sm" data-page="46" data-jump>Isi Flash Card Penawaran</button>
+  </div>
+</section>
+
+<!-- 3b. FLASH CARD DIGITAL -->
+<section id="flash-digital" aria-labelledby="h-digital">
+  <div class="fd">
+    <svg class="art" viewBox="0 0 220 160" role="img" aria-label="Laptop yang menampilkan kartu flash card dengan siswa dan tanda tanya">
+      <g class="fan2">
+        <rect x="30" y="10" width="160" height="104" rx="10" fill="#1d1040" stroke="#5eead4" stroke-width="3"/>
+        <rect x="38" y="18" width="144" height="88" rx="5" fill="#2a1a57"/>
+        <rect x="76" y="26" width="68" height="72" rx="9" fill="#fff"/>
+        <rect x="88" y="32" width="44" height="10" rx="5" fill="#2dd4bf"/>
+        <circle cx="110" cy="64" r="16" fill="#d7efe1"/>
+        <use href="#kid-c" x="92" y="46" width="36" height="36" style="--shirt:#2fa866"/>
+        <use href="#qb" x="124" y="42" width="16" height="16"/>
+        <rect x="86" y="86" width="48" height="5" rx="2.5" fill="#2dd4bf" opacity=".7"/>
+        <rect x="46" y="30" width="22" height="30" rx="4" fill="#f5a623" transform="rotate(-8 57 45)"/>
+        <rect x="152" y="34" width="22" height="30" rx="4" fill="#e8548f" transform="rotate(8 163 49)"/>
+        <path d="M14 124H206L196 140Q194 144 188 144H32Q26 144 24 140Z" fill="#dbe7ff"/>
+        <rect x="88" y="124" width="44" height="5" rx="2.5" fill="#8d79b8"/>
+      </g>
+      <path class="tw" d="M16 28l3 8 8 3-8 3-3 8-3-8-8-3 8-3z" fill="#f5b942"/>
+      <path class="tw tw2" d="M204 18l3 8 8 3-8 3-3 8-3-8-8-3 8-3z" fill="#fff"/>
+    </svg>
+    <div>
+      <p class="eyebrow">Website pembelajaran</p>
+      <h2 id="h-digital">Flash Card <em>Digital</em></h2>
+      <p>Versi digital flash card untuk materi Hukum Permintaan dan Hukum Penawaran (Law of Demand and Supply). Bisa dibuka lewat HP, tablet, atau laptop.</p>
+      <ul class="chips" aria-label="Perangkat yang didukung">
+        <li><b>HP</b></li><li><b>Tablet</b></li><li><b>Laptop</b></li>
+      </ul>
+      <div class="cta"><a class="btn teal" href="https://chillaaaa.github.io/Materi_Law-of-Demand-Supply/" target="_blank" rel="noopener">Buka Flash Card Digital</a></div>
+    </div>
+  </div>
+</section>
+
+<!-- 4. MYSTERY CARD -->
+<section id="mystery-card" aria-labelledby="h-mystery">
+  <div class="shead">
+    <svg viewBox="0 0 150 120" aria-hidden="true">
+      <g class="fan2"><rect x="38" y="6" width="74" height="104" rx="11" fill="#0d2340" stroke="#f5b942" stroke-width="2.5" stroke-dasharray="2 6" stroke-linecap="round"/>
+        <rect x="46" y="14" width="58" height="36" rx="6" fill="#27406a"/>
+        <use href="#awn" x="48" y="16" width="54" height="14"/>
+        <circle cx="75" cy="40" r="9" fill="#fff2db"/>
+        <rect x="46" y="58" width="58" height="42" rx="8" fill="#fff2db"/>
+        <use href="#qr" x="52" y="64" width="30" height="30"/>
+        <rect x="86" y="70" width="14" height="5" rx="2.5" fill="#0d2340"/><rect x="86" y="80" width="10" height="5" rx="2.5" fill="#0d2340" opacity=".5"/></g>
+      <path class="tw" d="M16 30l3 8 8 3-8 3-3 8-3-8-8-3 8-3z" fill="#f5b942"/>
+      <path class="tw tw2" d="M128 82l3 8 8 3-8 3-3 8-3-8-8-3 8-3z" fill="#fff"/>
+    </svg>
+    <div>
+      <p class="eyebrow">Permainan analisis kasus</p>
+      <h2 id="h-mystery">Isi <em>Mystery Card</em></h2>
+      <p>Siswa memindai QR pada kartu, membaca atau mendengarkan kasusnya, lalu menjawab dengan kode tangan hukum ekonomi yang bekerja. Enam kartu: tiga kasus permintaan dan tiga kasus penawaran.</p>
+    </div>
+  </div>
+
+  <div class="grid3">
+    <article class="mc p">
+      <div class="scene"><svg viewBox="0 0 300 118" preserveAspectRatio="xMidYMin slice" aria-hidden="true"><use href="#awn" x="50" y="8" width="200" height="50"/></svg><span class="em" style="--d:0s" aria-hidden="true">🧋</span></div>
+      <h3>Es Teh</h3>
+      <div class="tags"><span class="tag p">Hukum Permintaan</span><span class="tag lv">Kantin sekolah • Sedang</span></div>
+      <a class="btn" href="https://chillaaaa.github.io/Es-Teh/" target="_blank" rel="noopener" aria-label="Buka audio Es Teh">Putar audio</a>
+    </article>
+    <article class="mc p">
+      <div class="scene"><svg viewBox="0 0 300 118" preserveAspectRatio="xMidYMin slice" aria-hidden="true"><use href="#awn" x="50" y="8" width="200" height="50"/></svg><span class="em" style="--d:.4s" aria-hidden="true">👟</span></div>
+      <h3>Sepatu</h3>
+      <div class="tags"><span class="tag p">Hukum Permintaan</span><span class="tag lv">Toko sepatu • Mudah</span></div>
+      <a class="btn" href="https://chillaaaa.github.io/Sepatu/" target="_blank" rel="noopener" aria-label="Buka audio Sepatu">Putar audio</a>
+    </article>
+    <article class="mc p">
+      <div class="scene"><svg viewBox="0 0 300 118" preserveAspectRatio="xMidYMin slice" aria-hidden="true"><use href="#awn" x="50" y="8" width="200" height="50"/></svg><span class="em" style="--d:.8s" aria-hidden="true">🍗</span></div>
+      <h3>Daging Ayam</h3>
+      <div class="tags"><span class="tag p">Hukum Permintaan</span><span class="tag lv">Daging ayam • Rumit</span></div>
+      <a class="btn" href="https://chillaaaa.github.io/Daging-Ayam/" target="_blank" rel="noopener" aria-label="Buka audio Daging Ayam">Putar audio</a>
+    </article>
+    <article class="mc w">
+      <div class="scene"><svg viewBox="0 0 300 118" preserveAspectRatio="xMidYMin slice" aria-hidden="true"><use href="#awn" x="50" y="8" width="200" height="50"/></svg><span class="em" style="--d:1.2s" aria-hidden="true">🥬</span></div>
+      <h3>Sayur</h3>
+      <div class="tags"><span class="tag w">Hukum Penawaran</span><span class="tag lv">Penjual kangkung • Sedang</span></div>
+      <a class="btn" href="https://chillaaaa.github.io/Sayur/" target="_blank" rel="noopener" aria-label="Buka audio Sayur">Putar audio</a>
+    </article>
+    <article class="mc w">
+      <div class="scene"><svg viewBox="0 0 300 118" preserveAspectRatio="xMidYMin slice" aria-hidden="true"><use href="#awn" x="50" y="8" width="200" height="50"/></svg><span class="em" style="--d:1.6s" aria-hidden="true">🍞</span></div>
+      <h3>Roti</h3>
+      <div class="tags"><span class="tag w">Hukum Penawaran</span><span class="tag lv">Toko roti • Mudah</span></div>
+      <a class="btn" href="https://chillaaaa.github.io/Roti/" target="_blank" rel="noopener" aria-label="Buka audio Roti">Putar audio</a>
+    </article>
+    <article class="mc w">
+      <div class="scene"><svg viewBox="0 0 300 118" preserveAspectRatio="xMidYMin slice" aria-hidden="true"><use href="#awn" x="50" y="8" width="200" height="50"/></svg><span class="em" style="--d:2s" aria-hidden="true">🥭</span></div>
+      <h3>Mangga</h3>
+      <div class="tags"><span class="tag w">Hukum Penawaran</span><span class="tag lv">Petani mangga • Rumit</span></div>
+      <a class="btn" href="https://chillaaaa.github.io/Mangga/" target="_blank" rel="noopener" aria-label="Buka audio Mangga">Putar audio</a>
+    </article>
+  </div>
+
+  <div class="key">
+    <p>Guru: kunci jawaban, aturan permainan, dan isi QR Code ada di buku.</p>
+    <button class="btn line sm" data-page="48" data-jump>Kunci jawaban</button>
+    <button class="btn line sm" data-page="20" data-jump>Aturan permainan</button>
+    <button class="btn line sm" data-page="49" data-jump>Isi QR Code</button>
+  </div>
+</section>
+
+<!-- 5. KONTAK -->
+<section id="kontak" aria-labelledby="h-kontak">
+  <div class="shead" style="margin-bottom:18px">
+    <div>
+      <p class="eyebrow">Info developer</p>
+      <h2 id="h-kontak">Hubungi <em>kami</em></h2>
+      <p>Ada pertanyaan, kendala, atau masukan untuk buku dan media ini? Silakan hubungi developer atau isi formulir kritik dan saran.</p>
+    </div>
+  </div>
+  <div class="grid2">
+    <article class="ct em">
+      <h3><svg viewBox="0 0 30 30" aria-hidden="true"><rect x="2" y="6" width="26" height="18" rx="4" fill="#f5b942"/><path d="M4 9l11 8 11-8" fill="none" stroke="#1d1040" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>Email developer</h3>
+      <p>Untuk pertanyaan seputar penggunaan media dan website.</p>
+      <a class="mail" href="mailto:k1a.inklusi@gmail.com">k1a.inklusi@gmail.com</a>
+      <div class="acts">
+        <a class="btn sm" href="mailto:k1a.inklusi@gmail.com">Kirim email</a>
+        <button class="btn line sm" type="button" id="copy-mail">Salin email</button>
+      </div>
+      <div class="toast" id="toast" role="status" aria-live="polite"></div>
+    </article>
+    <article class="ct fm">
+      <h3><svg viewBox="0 0 30 30" aria-hidden="true"><path d="M4 5h22a2 2 0 0 1 2 2v13a2 2 0 0 1-2 2H14l-6 5v-5H4a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2z" fill="#ff7eb0"/><path d="M8 11h14M8 16h9" stroke="#1d1040" stroke-width="2.4" stroke-linecap="round"/></svg>Kritik dan saran</h3>
+      <p>Masukanmu membantu kami memperbaiki buku panduan dan media pembelajaran ini.</p>
+      <div class="acts"><a class="btn pink" href="https://docs.google.com/forms/d/1G9_R2_iByve6KILQ2zj9XR6UpOw9vlyKGMLajK1hFvQ/viewform" target="_blank" rel="noopener">Isi formulir kritik dan saran</a></div>
+    </article>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <b>Economic Inclusive Media Project</b><br>
+  One Classroom, Diverse Learners • Kelompok 1A • Tahun 2026
+</footer>
+
+<script>
+(function(){
+  var PDF = 'https://chillaaaa.github.io/Buku-Panduan/Buku_Panduan_K1A.pdf';
+  var frame = document.getElementById('frame');
+  var newtab = document.getElementById('newtab');
+
+  function openPage(n, scroll){
+    // iframe baru agar halaman benar-benar berpindah (file diambil dari cache)
+    var f = document.createElement('iframe');
+    f.src = PDF + '#page=' + n;
+    f.title = 'Buku Panduan Flash Card dan Mystery Card Kelompok 1A, halaman ' + n;
+    frame.replaceChildren(f);
+    newtab.href = PDF + '#page=' + n;
+    document.querySelectorAll('.toc .tb, .toc-m .tb').forEach(function(b){
+      b.classList.toggle('on', +b.dataset.page === n);
+    });
+    if(scroll){
+      var rm = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      document.getElementById('buku-panduan').scrollIntoView({behavior: rm ? 'auto' : 'smooth', block:'start'});
+    }
+  }
+
+  document.querySelectorAll('[data-page]').forEach(function(b){
+    b.addEventListener('click', function(){
+      openPage(+b.dataset.page, b.hasAttribute('data-jump'));
+      var d = b.closest('details'); if(d && !b.hasAttribute('data-jump')) d.open = false;
+    });
+  });
+
+  // salin email
+  var cm = document.getElementById('copy-mail'), tt = document.getElementById('toast');
+  if(cm) cm.addEventListener('click', function(){
+    var mail = 'k1a.inklusi@gmail.com';
+    function ok(){ tt.textContent = 'Email disalin.'; setTimeout(function(){ tt.textContent=''; }, 2500); }
+    function fail(){ tt.textContent = 'Tidak bisa menyalin otomatis. Salin manual: ' + mail; }
+    if(navigator.clipboard && navigator.clipboard.writeText){ navigator.clipboard.writeText(mail).then(ok, fail); } else { fail(); }
+  });
+
+  // balik flash card
+  document.querySelectorAll('.flip').forEach(function(b){
+    b.addEventListener('click', function(){
+      var on = b.classList.toggle('on');
+      b.setAttribute('aria-pressed', on);
+    });
+  });
+
+  // tandai menu sesuai bagian yang sedang dibaca
+  var links = document.querySelectorAll('.navbar a.l');
+  if('IntersectionObserver' in window){
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if(e.isIntersecting){
+          var id = e.target.id === 'alur' ? 'buku-panduan' : e.target.id;
+          links.forEach(function(a){
+            var on = a.getAttribute('href') === '#' + id;
+            a.classList.toggle('on', on);
+            if(on){ var nb = a.parentNode; nb.scrollLeft = a.offsetLeft - (nb.clientWidth - a.offsetWidth) / 2; }
+          });
+        }
+      });
+    }, {rootMargin:'-40% 0px -50% 0px'});
+    document.querySelectorAll('main section').forEach(function(s){ io.observe(s); });
+  }
+})();
+</script>
+</body>
+</html>
